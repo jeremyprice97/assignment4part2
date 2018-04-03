@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         if (v.getId() == R.id.Bfind) {
 
             Intent i = new Intent(MainActivity.this, results.class);
-            
+
             startActivity(i);
         }
     }
