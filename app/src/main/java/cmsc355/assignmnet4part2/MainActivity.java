@@ -22,7 +22,10 @@ public class MainActivity extends AppCompatActivity {
 
             String antonym = helper.searchSynonym(str);
 
-            if(str.equals(antonym)) {
+            Intent i = new Intent(MainActivity.this, results.class);
+            i.putExtra("Antonym", antonym);
+            startActivity(i);
+           /* if(str.equals(antonym)) {
                 Intent i = new Intent(MainActivity.this, results.class);
                 i.putExtra("Antonym", antonym);
                 startActivity(i);
@@ -30,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             else {
                 Toast pass = Toast.makeText(MainActivity.this , "No matching antonym found", Toast.LENGTH_SHORT);
                 pass.show();
-            }
+            }*/
         }
     }
     public void onButtonClickVal(View v) {

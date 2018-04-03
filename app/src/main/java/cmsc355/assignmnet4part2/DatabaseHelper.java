@@ -18,8 +18,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_SYNONYM = "synonym";
     private static final String COLUMN_ANTONYM = "antonym";
     SQLiteDatabase db;
-    private static final String TABLE_CREATE = "create stable Pairs(id integer primary key not null auto_increment, " +
-            "synonym test not null, antonym text not null)";
+    private static final String TABLE_CREATE = "create table Pairs (id integer primary key not null , " +
+            "synonym text not null, antonym text not null);";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME , null, DATABASE_VERSION);
@@ -35,6 +35,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void insertContact(Pairs p) {
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
+        String query = "select * from Pairs";
+        Cursor cursor = db.rawQuery(query, null);
+        int count = cursor.getCount();
+        values.put(COLUMN_ID, count);
         values.put(COLUMN_SYNONYM, p.getSynonym());
         values.put(COLUMN_ANTONYM, p.getAntonym());
 
