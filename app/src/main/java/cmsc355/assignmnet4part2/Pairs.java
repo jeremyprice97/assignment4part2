@@ -23,7 +23,7 @@ public class Pairs {
     public void setAntonym(String antonym) {
         this.antonym = antonym;
     }
-    public String getAntonym(String antonym) {
+    public String getAntonym() {
         return this.antonym;
     }
 }
